@@ -124,10 +124,10 @@ const Intro2 = () => {
   const headlineY = useTransform(scrollYProgress, [0, 0.45], [0, -200]);
   const headlineOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
 
-  // Next text enter (0.25 -> 0.75)
-  const nextOpacity = useTransform(scrollYProgress, [0.25, 0.40], [0, 1]);
-  const nextY = useTransform(scrollYProgress, [0.25, 0.55], [500, 0]);
-  const nextScale = useTransform(scrollYProgress, [0.10, 0.45], [0.75, 1]);
+  // Next text enter (slower)
+  const nextOpacity = useTransform(scrollYProgress, [0.25, 0.65], [0, 1]);
+  const nextY = useTransform(scrollYProgress, [0.25, 0.75], [600, 0]);
+  const nextScale = useTransform(scrollYProgress, [0.25, 0.75], [0.75, 1]);
 
   return (
     <div
@@ -146,7 +146,7 @@ const Intro2 = () => {
 
       {/* Next line */}
       <motion.div
-        className="font-my-font-bold px-10 absolute text-shadow-red"
+        className=" px-10 absolute dark:text-shadow-red"
         style={{
           opacity: nextOpacity,
           y: nextY,
@@ -154,12 +154,15 @@ const Intro2 = () => {
           willChange: "transform, opacity",
         }}
       >
-        <h2 className="text-[#fa1e16] text-5xl md:text-6xl lg:text-8xl text-start lg:text-center font-stranger! tracking-wider">
+        <h2
+          className="text-5xl md:text-6xl lg:text-8xl text-start lg:text-center font-extrabold!  dark:font-stranger! tracking-wider
+               text-black dark:text-[#fa1e16] "
+        >
           A Fullstack Developer
         </h2>
       </motion.div>
     </div>
   );
-};
+};;
 
 export default Intro2;

@@ -12,6 +12,7 @@ import { usePathname, useRouter } from "next/navigation";
 import LoginButton from "./LoginLogoutButton";
 import { useTransitionRouter } from "next-view-transitions";
 import { ModeToggle } from "./ModeToggle";
+import { LogoutButton } from "./LogoutButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,6 +100,7 @@ export const CurvedNavbar = () => {
 
         <div className="w-32 flex justify-end">
           <ModeToggle />
+          <LogoutButton/>
         </div>
       </div>
 

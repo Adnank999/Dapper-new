@@ -85,58 +85,46 @@ interface GridItemProps {
 }
 
 
-const GridItem = ({
-  area,
-  icon,
-  title,
-  description,
-  techIcons,
-}: GridItemProps) => {
+const GridItem = ({ area, icon, title, description, techIcons }: GridItemProps) => {
   return (
     <li className={`min-h-56 list-none ${area}`}>
-      <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3 ">
-        <GlowingEffect
-          spread={40}
-          glow={true}
-          disabled={false}
-          proximity={64}
-          inactiveZone={0.01}
-        />
-        <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
+      <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3 border-neutral-200 dark:border-neutral-800">
+        <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
+
+        <div
+          className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6
+                     bg-white text-neutral-900 border border-neutral-200
+                     dark:bg-transparent dark:border-neutral-800 dark:text-white
+                     dark:shadow-[0px_0px_27px_0px_#2D2D2D]"
+        >
           <div className="relative flex flex-1 flex-col justify-between gap-3">
             <div className="space-y-3">
-              <h3 className="-tracking-4 pt-0.5 text-xl/[1.375rem] font-semibold text-balance text-white md:text-2xl/[1.875rem] dark:text-white">
+              <h3 className="-tracking-4 pt-0.5 text-xl/[1.375rem] font-semibold text-balance text-neutral-900 md:text-2xl/[1.875rem] dark:text-white">
                 {title}
               </h3>
-              <h2 className=" text-sm/[1.125rem] text-white md:text-sm/[1.375rem] dark:text-neutral-400 md:[&_b]:font-semibold md:[&_strong]:font-semibold">
+
+              <h2 className="text-sm/[1.125rem] md:text-sm/[1.375rem] text-neutral-700 dark:text-neutral-400 md:[&_b]:font-semibold md:[&_strong]:font-semibold">
                 {description}
               </h2>
 
-              <div className="grid grid-cols-3 gap-4 mb-4 mt-6 ">
-                {techIcons &&
-                  techIcons.map((tech, index) => (
-                    <div
-                      key={index}
-                      className="flex flex-col items-center px-3 py-2.5 rounded-lg border border-gray-600/70 bg-gray-900/40 backdrop-blur-xs hover:border-gray-500 hover:bg-gray-800/50 transition-all duration-300 shadow-lg"
-                    >
-                      <div className="p-1.5 rounded-md bg-gray-800/80">
-                        <Image
-                          src={tech.icon}
-                          alt={tech.name}
-                          width={24}
-                          height={24}
-                          className="h-6 w-6"
-                        />
-                      </div>
-                      <p className="mt-2.5 text-[10px] font-mono font-bold text-gray-300">
-                        {tech.name}
-                      </p>
+              <div className="grid grid-cols-3 gap-4 mb-4 mt-6">
+                {techIcons?.map((tech, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center px-3 py-2.5 rounded-lg border transition-all duration-300 shadow-lg
+                               border-neutral-200 bg-white/80 hover:border-neutral-300 hover:bg-white
+                               dark:border-gray-600/70 dark:bg-gray-900/40 dark:hover:border-gray-500 dark:hover:bg-gray-800/50"
+                  >
+                    <div className="p-1.5 rounded-md bg-neutral-100 dark:bg-gray-800/80">
+                      <Image src={tech.icon} alt={tech.name} width={24} height={24} className="h-6 w-6" />
                     </div>
-                  ))}
-                 
+                    <p className="mt-2.5 text-[10px] font-mono font-bold text-neutral-700 dark:text-gray-300">
+                      {tech.name}
+                    </p>
+                  </div>
+                ))}
               </div>
 
-               {/* {techIcons && <div className="mt-6 w-full "><IconCloud techIcons={techIcons}/></div>} */}
             </div>
           </div>
         </div>
@@ -144,3 +132,4 @@ const GridItem = ({
     </li>
   );
 };
+
