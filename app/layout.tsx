@@ -38,9 +38,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ViewTransitions>
-            <SmoothScrollingWrapper>
+            {/* <SmoothScrollingWrapper> */}
               <MenuProvider>{children}</MenuProvider>
-            </SmoothScrollingWrapper>
+            {/* </SmoothScrollingWrapper> */}
           </ViewTransitions>
         </ThemeProvider>
       </body>

@@ -1,0 +1,6 @@
+$prefix: 'v-' !default;
+
+// Import Vevet mixin partials directly (avoid vevet's mixins/index.scss)
+@import "vevet/lib/styles/mixins/scroll";
+@import "vevet/lib/styles/mixins/transition";
+@import "vevet/lib/styles/mixins/viewport";
