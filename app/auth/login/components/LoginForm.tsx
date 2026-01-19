@@ -1,22 +1,59 @@
 "use client";
 
-import SignInWithGoogleButton from "./SignInWithGoogleButton";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import NeonBorder from "@/app/components/NeonBorder";
 import { useState } from "react";
 import GlowingCards, { GlowingCard } from "@/app/components/glowing-card-cards";
-import { login } from "@/lib/auth-actions";
-import { useActionState } from "react";
+import { authClient } from "@/src/lib/auth-client";
 
-const initialState = { error: "" };
 
 export function LoginForm() {
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
-  const [state, formAction, isPending] = useActionState(login, initialState);
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState<string>("");
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const email = String(formData.get("email") || "").trim().toLowerCase();
+    const password = String(formData.get("password") || "");
+
+    if (!email || !password) {
+      setError("Email and password are required");
+      return;
+    }
+
+    const { data, error } = await authClient.signIn.email(
+      { email, password, callbackURL: "/" },
+      {
+        onRequest: () => {
+          setIsPending(true);
+        },
+        onSuccess: () => {
+          // You can rely on callbackURL, or redirect manually:
+          window.location.href = "/";
+        },
+        onError: (ctx) => {
+          setError(ctx.error.message ?? "Invalid credentials");
+          setIsPending(false);
+        },
+      }
+    );
+
+    // If your version doesn't always trigger onSuccess, handle fallback:
+    if (!error) {
+      window.location.href = "/";
+      return;
+    }
+
+    setIsPending(false);
+  }
 
   return (
     <div>
@@ -32,8 +69,8 @@ export function LoginForm() {
                 Enter your credentials to access your account
               </p>
 
-              {/* ✅ server action bound here */}
-              <form action={formAction}>
+              {/* ✅ client submit */}
+              <form onSubmit={onSubmit}>
                 <div className="grid gap-4">
                   <div className="grid gap-2">
                     <Label htmlFor="email" className="text-white/90 font-medium">
@@ -60,7 +97,7 @@ export function LoginForm() {
                         Password
                       </Label>
                       <Link
-                        href="#"
+                        href="/auth/forgot-password"
                         className="text-xs text-blue-300 hover:text-blue-200 transition-colors duration-300 underline underline-offset-2"
                       >
                         Forgot password?
@@ -81,10 +118,10 @@ export function LoginForm() {
                     </NeonBorder>
                   </div>
 
-                  {/* ✅ show error without breaking */}
-                  {state?.error ? (
+                  {/* ✅ error */}
+                  {error ? (
                     <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-md px-3 py-2">
-                      {state.error}
+                      {error}
                     </p>
                   ) : null}
 

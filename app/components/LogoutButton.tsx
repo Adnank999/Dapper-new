@@ -1,10 +1,38 @@
-import { logout } from "@/lib/auth-actions";
+"use client";
+
 import { Button } from "@/components/ui/button";
 
+import { useState } from "react";
+import { authClient } from "@/src/lib/auth-client";
+
 export function LogoutButton() {
+  const [loading, setLoading] = useState(false);
+
+  const onLogout = async () => {
+    setLoading(true);
+
+    const { error } = await authClient.signOut(
+      {},
+      {
+        onSuccess: () => {
+          // redirect after logout
+          window.location.href = "/auth/login"; // or "/"
+        },
+        onError: (ctx) => {
+          alert(ctx.error.message);
+          setLoading(false);
+        },
+      }
+    );
+
+    // fallback if callbacks aren't triggered by your version
+    if (!error) window.location.href = "/auth/login";
+    else setLoading(false);
+  };
+
   return (
-    <form action={logout}>
-      <Button type="submit">Logout</Button>
-    </form>
+    <Button type="button" onClick={onLogout} disabled={loading}>
+      {loading ? "Logging out..." : "Logout"}
+    </Button>
   );
 }
