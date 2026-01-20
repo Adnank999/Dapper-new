@@ -121,6 +121,7 @@ export default function Page() {
 
       // Is the wheel event happening anywhere inside the showcase overlay?
       const path = typeof e.composedPath === "function" ? e.composedPath() : [];
+
       const isInsideRoot =
         path.length > 0
           ? path.includes(root)
@@ -169,7 +170,10 @@ export default function Page() {
       }
     };
 
-    window.addEventListener("wheel", onWheel, { passive: false, capture: true });
+    window.addEventListener("wheel", onWheel, {
+      passive: false,
+      capture: true,
+    });
     return () =>
       window.removeEventListener("wheel", onWheel, { capture: true } as any);
   }, []);

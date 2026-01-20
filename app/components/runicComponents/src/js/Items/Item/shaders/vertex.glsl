@@ -113,6 +113,10 @@ void main() {
   // blink
   float size = u_PointSize * dynamicNoise;
 
+ // move whole object left in model space
+  transformed.x -= 400.0;
+
+
   gl_Position = projectionMatrix * modelViewMatrix * vec4(transformed, 1.0);
   gl_PointSize = size * mapAlpha * (1.0 - vRand * 0.6);
 }
