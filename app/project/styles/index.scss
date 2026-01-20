@@ -67,10 +67,11 @@
   position: fixed;
   z-index: -1;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: -560px;
+  width: calc(100% + 400px);
   height: 100%;
   overflow: hidden;
+
 
   canvas {
     position: absolute;
@@ -92,4 +93,13 @@
 
   transform-origin: top left;
   transform: scale(0);
+}
+
+/* globals.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;    /* Firefox */
 }
