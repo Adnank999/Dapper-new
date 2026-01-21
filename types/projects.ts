@@ -5,7 +5,7 @@ export interface Project {
   title: string;
   shortDescription: string;
   longDescription: string;
-  imageUrl: string;
+  imageUrl: string[];
   category: Exclude<Category, "All">; // category on a project should not be "All"
   technologies: string[];
   link?: string;

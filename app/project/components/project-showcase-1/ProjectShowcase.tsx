@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Sparkles, Filter } from "lucide-react";
 import { Category, Project } from "@/types/projects";
@@ -131,6 +131,10 @@ const ProjectShowcase: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
 
   const { data, loading, error } = useQuery(GET_PROJECTS);
+
+  useEffect(() => {
+  console.log({ loading, error, data });
+}, [loading, error, data]); 
 
   const filteredProjects = useMemo(() => {
     const projects: Project[] = data?.projects ?? [];

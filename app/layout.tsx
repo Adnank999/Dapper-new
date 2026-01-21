@@ -8,6 +8,7 @@ import SmoothScrollingWrapper from "@/utils/SmoothScrollingWrapper";
 import { getCurrentUser } from "../src/lib/getCurrentUser";
 import { UserProvider } from "./context/UserContext";
 import ApolloProviders from "./providers/ApolloProviders";
+import { SidebarConfigProvider } from "./context/sidebar-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,7 +43,8 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ViewTransitions>
+            <SidebarConfigProvider>
+              <ViewTransitions>
             {/* <SmoothScrollingWrapper> */}
             <MenuProvider>
               <ApolloProviders>
@@ -51,6 +53,8 @@ export default async function RootLayout({
             </MenuProvider>
             {/* </SmoothScrollingWrapper> */}
           </ViewTransitions>
+            </SidebarConfigProvider>
+          
         </ThemeProvider>
       </body>
     </html>

@@ -1,7 +1,8 @@
 import "server-only";
 import type { Collection, Db } from "mongodb";
 import { ObjectId } from "mongodb";
-import type { Project } from "@/lib/project.types";
+import { Project } from "@/types/projects";
+
 
 type ProjectDoc = Omit<Project, "id"> & {
   _id: ObjectId;

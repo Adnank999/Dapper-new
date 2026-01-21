@@ -11,7 +11,7 @@ const typeDefs = /* GraphQL */ `
     title: String!
     shortDescription: String!
     longDescription: String!
-    imageUrl: String!
+    imageUrl: [String!]! 
     category: Category!
     technologies: [String!]!
     link: String
@@ -21,7 +21,7 @@ const typeDefs = /* GraphQL */ `
     title: String!
     shortDescription: String!
     longDescription: String!
-    imageUrl: String!
+    imageUrl: [String!]!
     category: Category!
     technologies: [String!]!
     link: String
@@ -32,7 +32,7 @@ const typeDefs = /* GraphQL */ `
     title: String
     shortDescription: String
     longDescription: String
-    imageUrl: String
+    imageUrl: [String!]!
     category: Category
     technologies: [String!]
     link: String
