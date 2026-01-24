@@ -5,21 +5,19 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental:{
-    useCache:true,
+  experimental: {
+    useCache: true,
     // dynamicIso: true,
   },
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com', 
-       
+        protocol: "https",
+        hostname: "res.cloudinary.com",
       },
-      
     ],
   },
-   webpack: (config) => {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
       type: "asset/source",
@@ -27,6 +25,7 @@ const nextConfig: NextConfig = {
 
     return config;
   },
+  turbopack: {},
 };
 
 
