@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "./shuffleAnimation.css";
+import "./custom.css"
 
 export const metadata: Metadata = {
   title: "Create Next App",

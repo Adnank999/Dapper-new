@@ -147,6 +147,14 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: "Imperial";
+    src: url("/fonts/Imperial.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -527,12 +535,32 @@ html {
   scroll-behavior: smooth;
 }
 
-h1,
+/* h1,
 h2,
 h3 {
   font-family: "PpEditRegular", sans-serif;
   font-weight: 400;
+} */
+ /* ONLY client pages */
+.client-scope h1,
+.client-scope h2,
+.client-scope h3,
+.client-scope span {
+  font-family: "PpEditRegular", sans-serif;
+  font-weight: 400;
 }
+
+/* optional: if you also want client paragraphs to use it */
+.client-scope p {
+  font-family: "Imperial", sans-serif;
+}
+
+/* .dashboard-scope h1,
+.dashboard-scope h2,
+.dashboard-scope h3 {
+  font-family: var(--font-mono), sans-serif;
+} */
+
 
 strong {
   font-family: "MyFontMedium", sans-serif;

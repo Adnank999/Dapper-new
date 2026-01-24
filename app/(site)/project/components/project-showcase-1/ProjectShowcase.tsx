@@ -3,8 +3,8 @@ import React, { useState, useMemo, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Sparkles, Filter } from "lucide-react";
 import { Category, Project } from "@/types/projects";
-import { ProjectCard } from "@/app/project/components/project-showcase-1/ProjectCard";
-import { ProjectModal } from "@/app/project/components/project-showcase-1/ProjectModal";
+import { ProjectCard } from "./ProjectCard";
+import { ProjectModal } from "./ProjectModal";
 import { GET_PROJECTS } from "@/src/lib/apollo/project/project.gql";
 import { useQuery } from "@apollo/client/react";
 

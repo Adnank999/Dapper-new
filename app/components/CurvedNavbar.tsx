@@ -17,9 +17,9 @@ import { LogoutButton } from "./LogoutButton";
 gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
-  { name: "HOME", href: "/" },
+  { name: "HOME", href: "/home" },
   { name: "ABOUT", href: "/about" },
-  { name: "WORK", href: "/projects" },
+  { name: "WORK", href: "/project" },
   { name: "CONTACT", href: "/contact" },
 ];
 

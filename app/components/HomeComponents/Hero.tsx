@@ -17,7 +17,7 @@ const TextWithParticles = dynamic(() => import("../HomeComponents/Intro2"), {
 
 const GlowingEffectDemo = dynamic(() => import("./glowing-effectDemo"), {
   ssr: false,
-  loading: () => <div className="h-40 w-full max-w-4xl mx-auto" />,
+  loading: () => <div className="h-screen w-full max-w-4xl mx-auto " />,
 })
 
 const Gradient = dynamic(() => import("./GradientModelWrapper"), {
@@ -65,7 +65,7 @@ export default function Hero() {
         <TextWithParticles />
       </LazySection>
 
-      <LazySection className="max-w-4xl mx-auto" minScrollY={200}>
+      <LazySection className="max-w-4xl mx-auto" minScrollY={100}>
         <GlowingEffectDemo />
       </LazySection>
 
@@ -73,9 +73,9 @@ export default function Hero() {
         <Gradient />
       </LazySection>
 
-      <LazySection minScrollY={150}>
+      {/* <LazySection minScrollY={150}>
         <Scene />
-      </LazySection>
+      </LazySection> */}
 
       <LazySection minScrollY={50}>
         <Testimonial />

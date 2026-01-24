@@ -8,7 +8,7 @@ import React from "react";
 import IconCloud from "../IconCloud";
 
 const GlowingEffectDemo = function GlowingEffect() {
-  console.log("glowing effect rendered");
+
   return (
     <ul className="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-4">
       {/* Top-left */}
@@ -103,9 +103,9 @@ const GridItem = ({ area, icon, title, description, techIcons }: GridItemProps) 
                 {title}
               </h3>
 
-              <h2 className="text-sm/[1.125rem] md:text-sm/[1.375rem] text-neutral-700 dark:text-neutral-400 md:[&_b]:font-semibold md:[&_strong]:font-semibold">
+              <p className="text-sm/[1.125rem] md:text-sm/[1.375rem] text-neutral-700 dark:text-neutral-400 md:[&_b]:font-semibold md:[&_strong]:font-semibold tracking-wider">
                 {description}
-              </h2>
+              </p>
 
               <div className="grid grid-cols-3 gap-4 mb-4 mt-6">
                 {techIcons?.map((tech, index) => (

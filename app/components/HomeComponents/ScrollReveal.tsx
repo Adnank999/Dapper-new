@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ComicText } from "../ComicText";
 import useIsMobile from "@/hooks/useIsMobile";
-import { TextAnimate } from "./TextAnimation";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -135,7 +135,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       {/* Replace <p> with <div> */}
       <div className={`scroll-reveal-text ${textClassName}`}>
         <ComicText>
-          <div className="leading-16 text-3xl lg:text-6xl">{splitText}</div>
+          <div className="leading-16 text-3xl lg:text-4xl">{splitText}</div>
         </ComicText>
       </div>
     </div>

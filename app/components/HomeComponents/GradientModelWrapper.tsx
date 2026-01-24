@@ -3,7 +3,11 @@
 import GradientSection from "../GradientSection";
 
 const GradientModelWrapper = () => {
-  return <GradientSection />;
+  return (
+    <div className="pt-24">
+      <GradientSection />
+    </div>
+  );
 };
 
 export default GradientModelWrapper;

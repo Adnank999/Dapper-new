@@ -402,14 +402,14 @@ export default function TechnicalStack() {
   }, [activeTab, currentTab]);
 
   return (
-    <div className="min-h-screen bg-background text-white p-12 pt-24">
+    <div className="min-h-screen bg-background text-foreground p-12 pt-24">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4">
             Technical <span className="text-highlight">Stack</span>
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-foreground text-lg">
             Technologies and tools I use to build innovative solutions
           </p>
         </div>
@@ -422,8 +422,8 @@ export default function TechnicalStack() {
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-200 ${
                 activeTab === tab.id
-                  ? " border-purple-600 text-white"
-                  : "border-gray-600 text-gray-400 hover:border-gray-400 hover:text-white"
+                  ? " border-purple-600 text-foreground"
+                  : "border-gray-600 text-gray-400 hover:border-gray-400 hover:text-foreground"
               }`}
             >
               {tab.icon}
@@ -446,7 +446,7 @@ export default function TechnicalStack() {
                     <h3 className="text-xl font-semibold text-highlight mb-1">
                       {tech.name}
                     </h3>
-                    <div className="flex items-center gap-2 text-sm text-gray-200">
+                    <div className="flex items-center gap-2 text-sm text-foreground">
                       <span>{tech.projects} projects</span>
                       <Sparkles className="w-3 h-3" />
                     </div>
@@ -455,8 +455,8 @@ export default function TechnicalStack() {
 
                 <div className="mb-4">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-gray-200">Proficiency</span>
-                    <span className="text-sm font-medium text-white">
+                    <span className="text-sm text-foreground">Proficiency</span>
+                    <span className="text-sm font-medium text-foreground">
                       {animatedProgress[tech.name] || 0}%
                     </span>
                   </div>
@@ -483,7 +483,7 @@ export default function TechnicalStack() {
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-200 leading-relaxed">
+                <p className="text-sm text-foreground leading-relaxed">
                   {tech.description}
                 </p>
               </CardContent>
@@ -508,12 +508,12 @@ export default function TechnicalStack() {
               <div className="p-6 text-center flex flex-col justify-center h-full">
                 <div className={`text-4xl font-bold mb-2 ${stat.color}`}>
                   <AnimatedNumber value={stat.value} />
-                  <span className="text-white">+</span>
+                  <span className="text-foreground">+</span>
                 </div>
 
-                <div className="text-gray-400 text-sm font-medium">
+                <h3 className="text-foreground text-sm font-medium tracking-wider">
                   {stat.label}
-                </div>
+                </h3>
               </div>
             </GlowingCard>
           ))}

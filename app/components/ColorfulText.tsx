@@ -70,7 +70,7 @@ export function ColourfulText({ text }: { text: string }) {
             duration: 0.5,
             delay: index * 0.05,
           }}
-          className="inline-block whitespace-pre tracking-wide"
+          className="inline-block font-my-font-bold! whitespace-pre tracking-wide"
         >
           {char}
         </motion.span>

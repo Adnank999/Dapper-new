@@ -16,10 +16,10 @@ export function TimelineDemo() {
         "linear-gradient(45deg, oklab(65.4% 0.194 0.132), oklab(85.7% 0.01 0.165))",
       content: (
         <div>
-          <p className="mb-8 text-xs font-normal text-white/70 md:text-sm dark:text-neutral-200">
+          <h1 className="mb-8 text-xs font-normal md:text-2xl text-foreground">
             Built and launched production grade application CanvasCloud an Image
             uploading platform from scratch
-          </p>
+          </h1>
           <div className="grid grid-cols-2 gap-4">
             <Image
               key="img-1"
@@ -50,10 +50,10 @@ export function TimelineDemo() {
         "linear-gradient(45deg, oklab(65.4% 0.194 0.132), oklab(85.7% 0.01 0.165))",
       content: (
         <div>
-          <p className="mb-8 text-xs font-normal text-white/70 md:text-sm dark:text-neutral-200">
+          <h1 className="mb-8 text-xs  md:text-2xl font-bold text-foreground">
             Cherry Internet — A Fresh Digital Presence
-          </p>
-          <p className="mb-8 text-xs font-normal text-white/70 md:text-sm dark:text-neutral-200">
+          </h1>
+          <p className="mb-8 text-xs font-normal  md:text-sm text-foreground">
             Redesigned and redeveloped a stunning website for Cherry Internet, a
             local service provider, with a sleek new UI and buttery-smooth
             animations that elevate the brand's modern identity. The refreshed

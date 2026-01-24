@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { MenuProvider } from "./context/MenuContext";
+
 import { ViewTransitions } from "next-view-transitions";
 import { ThemeProvider } from "./components/ThemeProvider";
 import SmoothScrollingWrapper from "@/utils/SmoothScrollingWrapper";
@@ -35,26 +35,26 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+         className={`antialiased`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-            <SidebarConfigProvider>
-              <ViewTransitions>
-            {/* <SmoothScrollingWrapper> */}
-            <MenuProvider>
+          <SidebarConfigProvider>
+            <ViewTransitions>
+              {/* <SmoothScrollingWrapper> */}
+
               <ApolloProviders>
                 <UserProvider user={user}>{children}</UserProvider>
               </ApolloProviders>
-            </MenuProvider>
-            {/* </SmoothScrollingWrapper> */}
-          </ViewTransitions>
-            </SidebarConfigProvider>
-          
+
+              {/* </SmoothScrollingWrapper> */}
+            </ViewTransitions>
+          </SidebarConfigProvider>
         </ThemeProvider>
       </body>
     </html>

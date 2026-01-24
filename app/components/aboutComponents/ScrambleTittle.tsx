@@ -61,7 +61,7 @@ class TextScramble {
           char = this.chars[Math.floor(Math.random() * this.chars.length)];
           this.queue[i].char = char;
         }
-        output += `<span class="dud">${char}</span>`;
+        output += `<span class="scramble-dud">${char}</span>`;
       } else {
         output += from;
       }
@@ -116,7 +116,7 @@ const ScrambledTitle: React.FC = () => {
   return (
     <h1
       ref={elementRef}
-      className="text-white !font-clyra text-center text-4xl md:text-5xl lg:text-8xl font-bold tracking-wider justify-center"
+      className="scramble-title text-white text-center text-4xl md:text-5xl lg:text-[120px]! font-my-font-bold! tracking-wider justify-center"
     >
       ZaxzzaZZZ
     </h1>

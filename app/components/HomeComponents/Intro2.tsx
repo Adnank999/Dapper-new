@@ -1,66 +1,3 @@
-// "use client";
-
-// import React, { useRef } from "react";
-// import { TextAnimate } from "./TextAnimation";
-// import { ColourfulText } from "../ColorfulText";
-// import { motion, useScroll, useTransform } from "motion/react";
-
-// const Intro2 = () => {
-//   const containerRef = useRef<HTMLDivElement>(null);
-
-//   // Scroll progress for this section only
-//   const { scrollYProgress } = useScroll({
-//     target: containerRef,
-//     offset: ["start start", "end start"], // when section enters -> when it leaves
-//   });
-
-//   // Headline exit (0 -> 0.45)
-//   const headlineY = useTransform(scrollYProgress, [0, 0.45], [0, -200]);
-//   const headlineOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
-
-//   // Next text enter (slower)
-//   const nextOpacity = useTransform(scrollYProgress, [0.25, 0.65], [0, 1]);
-//   const nextY = useTransform(scrollYProgress, [0.25, 0.75], [600, 0]);
-//   const nextScale = useTransform(scrollYProgress, [0.25, 0.75], [0.75, 1]);
-
-//   return (
-//     <div
-//       ref={containerRef}
-//       className="flex justify-center items-center h-screen w-full relative"
-//     >
-//       {/* Headline group */}
-//       <motion.div style={{ y: headlineY, opacity: headlineOpacity }}>
-//         <TextAnimate
-//           text="Hi, I am"
-//           colorfulText={<ColourfulText text="Adnan" />}
-//           type="whipInUp"
-//           className=" text-6xl lg:text-[160px]"
-//         />
-//       </motion.div>
-
-//       {/* Next line */}
-//       <motion.div
-//         className=" px-10 absolute dark:text-shadow-red"
-//         style={{
-//           opacity: nextOpacity,
-//           y: nextY,
-//           scale: nextScale,
-//           willChange: "transform, opacity",
-//         }}
-//       >
-//         <h2
-//           className="text-5xl md:text-6xl lg:text-8xl text-start lg:text-center font-extrabold!  dark:font-stranger! tracking-wider
-//                text-black dark:text-[#fa1e16] "
-//         >
-//           A Fullstack Developer
-//         </h2>
-//       </motion.div>
-//     </div>
-//   );
-// };;
-
-// export default Intro2;
-
 "use client";
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -132,7 +69,7 @@ const Intro2: React.FC = () => {
           <TextAnimate
             text="Hi, I am"
             type="whipInUp"
-            className="text-6xl lg:text-[160px] font-bold text-zinc-300 mb-4 tracking-wide"
+            className="text-6xl lg:text-[160px] text-zinc-300 mb-4 tracking-wide"
             colorfulText={<ColourfulText text="Adnan" />}
           />
         </motion.div>

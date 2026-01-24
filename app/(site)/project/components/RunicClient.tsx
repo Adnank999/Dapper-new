@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function RunicClient() {
   useEffect(() => {
     (window as any).OPEN_DAT_GUI = true;
-    import("../../components/runicComponents/src/js/index");
+    import("@/app/components/runicComponents/src/js/index");
   }, []);
 
   return (

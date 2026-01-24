@@ -172,7 +172,7 @@ const Scene = () => {
             baseOpacity={0}
             enableBlur={true}
             baseRotation={0}
-            blurStrength={10}
+            blurStrength={50}
           >
             With Great Power Comes Great Responsibility.
           </ScrollReveal>

@@ -3,17 +3,17 @@
 import dynamic from "next/dynamic";
 
 const RainingLetters = dynamic(
-  () => import("../../components/aboutComponents/RainingLetters"),
+  () => import("@/app/components/aboutComponents/RainingLetters"),
   { ssr: false, loading: () => <div className="h-40 w-full" /> },
 );
 
-const ShuffleText = dynamic(() => import("../../components/ShuffleText"), {
+const ShuffleText = dynamic(() => import("@/app/components/ShuffleText"), {
   ssr: false,
   loading: () => <div className="h-24 w-full" />,
 });
 
 const TechnicalStack = dynamic(
-  () => import("../../components/aboutComponents/TechnicalStack"),
+  () => import("@/app/components/aboutComponents/TechnicalStack"),
   {
     ssr: false,
     loading: () => <div className="h-24 w-full" />,
@@ -23,7 +23,7 @@ const TechnicalStack = dynamic(
 export default function AboutMeSection() {
   return (
     <>
-      <div className="relative z-10 bg-background">
+      <div className="relative z-10 bg-foreground">
         <RainingLetters />
       </div>
 

@@ -64,7 +64,7 @@ export const TextAnimate: React.FC<TextAnimateProps> = ({
       {...props}
     >
       {words.map((word, index) => (
-        <motion.span variants={childVariants} key={index} className="inline-block text-transparent bg-clip-text bg-black dark:bg-linear-to-b from-white to-zinc-500 drop-shadow-2xl">
+        <motion.span variants={childVariants} key={index} className="inline-block font-my-font-bold! text-transparent bg-clip-text bg-black dark:bg-linear-to-b from-white to-zinc-500 drop-shadow-2xl">
           {word}
         </motion.span>
       ))}

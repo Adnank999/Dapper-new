@@ -220,7 +220,7 @@ const ShuffleText: React.FC = () => {
                 <dt className="text-xs sm:text-sm lg:text-base xl:text-lg text-green-400 font-light tracking-wider mb-1 lg:mb-3">
                   {renderChars("Name")}
                 </dt>
-                <dd className="text-sm sm:text-base md:text-lg lg:text-2xl xl:text-3xl text-white font-medium leading-tight lg:leading-snug">
+                <dd className="text-sm sm:text-base md:text-lg lg:text-2xl xl:text-3xl text-foreground font-medium leading-tight lg:leading-snug">
                     {renderChars("Adnan Hossain Khan")}
                 </dd>
               </div>
@@ -230,7 +230,7 @@ const ShuffleText: React.FC = () => {
                 <dt className="text-xs sm:text-sm lg:text-base xl:text-lg text-blue-400 font-light tracking-wider mb-1 lg:mb-3">
                   {renderChars("Profession")}
                 </dt>
-                <dd className="text-sm sm:text-base md:text-lg lg:text-2xl xl:text-3xl text-white font-medium leading-tight lg:leading-snug">
+                <dd className="text-sm sm:text-base md:text-lg lg:text-2xl xl:text-3xl text-foreground font-medium leading-tight lg:leading-snug">
                   {renderChars("Creative FullStack Web Developer")}
                 </dd>
               </div>
@@ -241,17 +241,17 @@ const ShuffleText: React.FC = () => {
               <dt className="text-xs sm:text-sm lg:text-base text-purple-400 font-light tracking-wider mb-2 lg:mb-4">
                 Bio
               </dt>
-              <dd className="text-xs text-gray-300 leading-relaxed lg:leading-loose font-light space-y-3 lg:space-y-4">
-                <span className="block">
+              <dd className="text-xs text-foreground leading-relaxed lg:leading-loose  space-y-3 lg:space-y-4">
+                <span className="block font-mono!">
                   3 years experience - HTML, CSS, JavaScript, PHP.
                 </span>
-                <span className="block">
+                <span className="block font-mono!">
                   Passion for creativity in the digital space.
                 </span>
-                <span className="block">
+                <span className="block font-mono!">
                   Problem solver. Hiker, Photographer, culinary enthusiast.
                 </span>
-                <span className="block">
+                <span className="block font-mono!">
                   Constantly seeking new challenges, growth opportunities.
                 </span>
               </dd>

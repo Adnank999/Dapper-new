@@ -24,7 +24,7 @@ export default function DashboardLayout({
         "--sidebar-width-icon": "3rem",
         "--header-height": "calc(var(--spacing) * 14)",
       } as React.CSSProperties}
-      className={config.collapsible === "none" ? "sidebar-none-mode" : ""}
+      className={`dashboard-scope font-mono ${config.collapsible === "none" ? "sidebar-none-mode" : ""}`}
     >
       {config.side === "left" ? (
         <>
