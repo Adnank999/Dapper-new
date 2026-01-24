@@ -135,9 +135,8 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       {/* Replace <p> with <div> */}
       <div className={`scroll-reveal-text ${textClassName}`}>
         <ComicText>
-          <TextAnimate type="calmInUp" text={splitText} className="leading-16 text-3xl lg:text-6xl"/>
-          
-          </ComicText>
+          <div className="leading-16 text-3xl lg:text-6xl">{splitText}</div>
+        </ComicText>
       </div>
     </div>
   );

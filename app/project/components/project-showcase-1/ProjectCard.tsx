@@ -26,7 +26,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
           layoutId={`card-image-${project.id}`}
           src={project.imageUrl[0]}
           alt={project.title}
-          className="w-full h-full object-cover object-top-left"
+          className="w-full h-full object-cover object-center"
           variants={{
             initial: { scale: 1 },
             hover: { scale: 1.05 },

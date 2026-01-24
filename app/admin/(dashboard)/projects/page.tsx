@@ -1,8 +1,9 @@
-import { ProjectFormDialog } from "./partials/add-project-dialog";
-
+import ProjectWrapper from "./partials/project-wrapper";
 
 export default function AddProject() {
   return (
-    <ProjectFormDialog mode="create" onSuccessRedirectTo="/admin/projects" />
+    <div className="">
+      <ProjectWrapper />
+    </div>
   );
 }

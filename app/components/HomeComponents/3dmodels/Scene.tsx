@@ -101,7 +101,10 @@ const Scene = () => {
         width: "100vw",
         overflow: "hidden",
       }}
+      className="bg-background"
     >
+    
+
       {/* motion wrapper controls opacity (like GSAP timeline did) */}
       <motion.div
         style={{
@@ -114,7 +117,10 @@ const Scene = () => {
           zIndex: 0,
           pointerEvents: "none",
         }}
+        
       >
+          
+        
         <Canvas
           frameloop="always"
           gl={{
@@ -136,6 +142,7 @@ const Scene = () => {
             display: "block",
           }}
         >
+          
           <directionalLight position={[-5, -5, 5]} intensity={4} />
 
           <Suspense fallback={<Loader />}>

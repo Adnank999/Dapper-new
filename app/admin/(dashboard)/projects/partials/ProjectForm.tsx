@@ -90,7 +90,7 @@ export function ProjectForm({
 
   // Keep uploaded assets for thumbnail preview on the right
   const [uploadedAssets, setUploadedAssets] = useState<
-    { original: string; thumbnail: string }[]
+    { original: string }[]
   >([]);
 
   // Prefill for edit
@@ -350,8 +350,8 @@ export function ProjectForm({
                       <div className="grid grid-cols-3 gap-2">
                         {uploadedAssets.map((a, idx) => (
                           <Image
-                            key={`${a.thumbnail}-${idx}`}
-                            src={a.thumbnail}
+                            key={`${a.original}-${idx}`}
+                            src={a.original}
                             alt={`Uploaded ${idx + 1}`}
                             className="h-24 w-full rounded-md object-cover"
                             width={200}

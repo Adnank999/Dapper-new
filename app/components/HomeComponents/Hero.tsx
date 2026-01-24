@@ -1,54 +1,85 @@
-"use client";
+"use client"
 
-import dynamic from "next/dynamic";
-import LazyWrapper from "./LazyWrapper";
+import { useLazyMount } from "@/hooks/use-lazyMount"
+import dynamic from "next/dynamic"
 
-const Scene = dynamic(() => import("./3dmodels/Scene"), { ssr: false });
+
+// ✅ dynamic imports (code-split)
+const Navigation = dynamic(() => import("../NavHeroContainer"), {
+  ssr: false,
+  loading: () => <div className="h-16 w-full" />,
+})
+
+const TextWithParticles = dynamic(() => import("../HomeComponents/Intro2"), {
+  ssr: false,
+  loading: () => <div className="h-40 w-full" />,
+})
+
+const GlowingEffectDemo = dynamic(() => import("./glowing-effectDemo"), {
+  ssr: false,
+  loading: () => <div className="h-40 w-full max-w-4xl mx-auto" />,
+})
+
+const Gradient = dynamic(() => import("./GradientModelWrapper"), {
+  ssr: false,
+  loading: () => <div className="h-40 w-full" />,
+})
+
+const Scene = dynamic(() => import("./3dmodels/Scene"), {
+  ssr: false,
+  loading: () => <div className="h-[400px] w-full" />,
+})
+
+const Testimonial = dynamic(() => import("./Testimonial"), {
+  ssr: false,
+  loading: () => <div className="h-40 w-full" />,
+})
+
+function LazySection({
+  children,
+  rootMargin,
+  minScrollY,
+  className,
+}: {
+  children: React.ReactNode
+  rootMargin?: string
+  minScrollY?: number
+  className?: string
+}) {
+  const { ref, mounted } = useLazyMount({ rootMargin, minScrollY })
+  return (
+    <div ref={ref} className={className}>
+      {mounted ? children : null}
+    </div>
+  )
+}
 
 export default function Hero() {
   return (
     <div className="w-full">
-      <LazyWrapper
-        componentName="Navigation"
-        importFunction={() => import("../NavHeroContainer")}
-        rootMargin="0px"
-      />
+      {/* <LazySection rootMargin="0px">
+        <Navigation />
+      </LazySection> */}
 
-      <LazyWrapper
-        componentName="TextWithParticles"
-        importFunction={() => import("../HomeComponents/Intro2")}
-        rootMargin="0px"
-      />
+      <LazySection rootMargin="0px" className="min-h-screen">
+        <TextWithParticles />
+      </LazySection>
 
-      <LazyWrapper
-        componentName="GlowingEffectDemo"
-        className="max-w-4xl mx-auto"
-        importFunction={() => import("./glowing-effectDemo")}
-        minScrollY={200}
-      />
+      <LazySection className="max-w-4xl mx-auto" minScrollY={200}>
+        <GlowingEffectDemo />
+      </LazySection>
 
-      <LazyWrapper
-        componentName="Gradient"
-        className=""
-        importFunction={() => import("./GradientModelWrapper")}
-        minScrollY={220}
-      />
+      <LazySection minScrollY={220}>
+        <Gradient />
+      </LazySection>
 
-      <LazyWrapper
-        componentName="Scene"
-        className=""
-        importFunction={() => import("./3dmodels/Scene")}
-        // rootMargin="100px 0px" 
-        minScrollY={150}
-      />
+      <LazySection minScrollY={150}>
+        <Scene />
+      </LazySection>
 
-       <LazyWrapper
-        componentName="Testimonial"
-        className=""
-        importFunction={() => import("./Testimonial")}
-        // rootMargin="100px 0px" 
-        minScrollY={50}
-      />
+      <LazySection minScrollY={50}>
+        <Testimonial />
+      </LazySection>
     </div>
-  );
+  )
 }

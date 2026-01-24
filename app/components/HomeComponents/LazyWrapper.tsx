@@ -43,8 +43,8 @@ const LazyWrapper: React.FC<LazyWrapperProps> = ({
 
   useEffect(() => {
     if (inView && scrollY >= minScrollY && !LazyComponent && !isLoading) {
-      console.log(`${componentName} is in view, loading...`);
-      setIsLoading(true);
+      // console.log(`${componentName} is in view, loading...`);
+      // setIsLoading(true);
       
       // Add initial delay if specified
       const loadComponent = async () => {
@@ -71,10 +71,10 @@ const LazyWrapper: React.FC<LazyWrapperProps> = ({
             <div className="flex items-center justify-between p-4">
               <Skeleton className="h-8 w-32" />
               <div className="flex space-x-4">
+                {/* <Skeleton className="h-8 w-16" />
                 <Skeleton className="h-8 w-16" />
                 <Skeleton className="h-8 w-16" />
-                <Skeleton className="h-8 w-16" />
-                <Skeleton className="h-8 w-20" />
+                <Skeleton className="h-8 w-20" /> */}
               </div>
             </div>
           </div>
