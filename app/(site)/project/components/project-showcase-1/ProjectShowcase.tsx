@@ -130,7 +130,7 @@ const ProjectShowcase: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeCategory, setActiveCategory] = useState<Category>("All");
 
-  const { data, loading, error } = useQuery(GET_PROJECTS);
+  const { data, loading, error } = useQuery(GET_PROJECTS,{fetchPolicy: "cache-first"});
 
   useEffect(() => {
   console.log({ loading, error, data });

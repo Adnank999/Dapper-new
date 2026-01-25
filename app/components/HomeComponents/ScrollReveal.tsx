@@ -1,14 +1,14 @@
-import { useEffect, useRef, useMemo } from "react";
+"use client";
+
+import React, { useEffect, useMemo, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ComicText } from "../ComicText";
 import useIsMobile from "@/hooks/useIsMobile";
-
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface ScrollRevealProps {
-  children: string;
+  children: React.ReactNode;
   scrollContainerRef?: React.RefObject<HTMLElement>;
   enableBlur?: boolean;
   baseOpacity?: number;
@@ -32,35 +32,56 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   rotationEnd = "bottom bottom",
   wordAnimationEnd = "bottom bottom",
 }) => {
-  const containerRef = useRef<HTMLElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useIsMobile();
   const scrubValue = isMobile ? 1.5 : 0.5;
 
-  const splitText = useMemo(() => {
-    const text = typeof children === "string" ? children : "";
-    return text.split(/(\s+)/).map((word, index) => {
-      if (word.match(/^\s+$/)) return word;
+  // Build renderable content:
+  // - split only string parts into animated word spans
+  // - keep React elements (e.g. <ComicText />) as-is
+  const content = useMemo(() => {
+    const nodes = React.Children.toArray(children);
+
+    return nodes.map((node, idx) => {
+      if (typeof node === "string") {
+        return node.split(/(\s+)/).map((word, i) => {
+          if (/^\s+$/.test(word)) return word;
+
+          return (
+            <span
+              key={`${idx}-${i}`}
+              className={[
+                "word",
+                // gradient text
+                "bg-[linear-gradient(180deg,oklch(100%_0_0),oklch(77.3%_0_0),oklch(46.4%_0_0))]",
+                "bg-clip-text text-transparent",
+                "font-extrabold!",
+              ].join(" ")}
+            >
+              {word}
+            </span>
+          );
+        });
+      }
+
+      // Keep elements (ComicText, icons, spans...) visible and inline
       return (
-        <span className="word" key={index}>
-          {word}
+        <span key={idx} className="inline-block align-middle">
+          {node}
         </span>
       );
     });
   }, [children]);
 
-  //  const splitText = useMemo(() => {
-  //   const text = typeof children === "string" ? children : "";
-  //   return text.split(/(\s+)/).join(""); // Join words into a continuous string
-  // }, [children]);
-
-
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
+    // If you ever use a custom scroll container, you can wire it here:
+    // const scroller = scrollContainerRef?.current ?? document.body;
     const scroller = document.body;
 
-    // GSAP ScrollTrigger for rotation animation
+    // Rotation animation
     gsap.fromTo(
       el,
       { transformOrigin: "0% 50%", rotate: baseRotation },
@@ -79,7 +100,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
     const wordElements = el.querySelectorAll<HTMLElement>(".word");
 
-    // GSAP ScrollTrigger for word opacity animation
+    // Opacity animation (words only)
     gsap.fromTo(
       wordElements,
       { opacity: baseOpacity, willChange: "opacity" },
@@ -97,7 +118,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       }
     );
 
-    // GSAP ScrollTrigger for blur animation
+    // Blur animation (words only)
     if (enableBlur) {
       gsap.fromTo(
         wordElements,
@@ -118,7 +139,10 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // Kill only triggers created by this component (simple approach: kill all)
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+      gsap.killTweensOf(el);
+      gsap.killTweensOf(wordElements);
     };
   }, [
     scrollContainerRef,
@@ -128,15 +152,15 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     rotationEnd,
     wordAnimationEnd,
     blurStrength,
+    scrubValue,
   ]);
 
   return (
     <div ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
-      {/* Replace <p> with <div> */}
       <div className={`scroll-reveal-text ${textClassName}`}>
-        <ComicText>
-          <div className="leading-16 text-3xl lg:text-4xl">{splitText}</div>
-        </ComicText>
+        <div className="leading-[4rem] text-3xl lg:text-[1em] px-2 py-1 inline-block">
+          {content}
+        </div>
       </div>
     </div>
   );

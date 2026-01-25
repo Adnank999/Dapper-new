@@ -69,7 +69,7 @@ const Intro2: React.FC = () => {
           <TextAnimate
             text="Hi, I am"
             type="whipInUp"
-            className="text-6xl lg:text-[160px] text-zinc-300 mb-4 tracking-wide"
+            className="text-6xl lg:text-[160px] mb-4 tracking-wide"
             colorfulText={<ColourfulText text="Adnan" />}
           />
         </motion.div>

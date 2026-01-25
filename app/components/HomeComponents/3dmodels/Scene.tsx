@@ -14,6 +14,7 @@ import {
 import ScrollReveal from "../ScrollReveal";
 import useIsMobile from "@/hooks/useIsMobile";
 import Model2 from "./Model2";
+import { ComicText } from "../../ComicText";
 
 const Loader = () => {
   const { progress } = useProgress();
@@ -103,8 +104,6 @@ const Scene = () => {
       }}
       className="bg-background"
     >
-    
-
       {/* motion wrapper controls opacity (like GSAP timeline did) */}
       <motion.div
         style={{
@@ -117,10 +116,7 @@ const Scene = () => {
           zIndex: 0,
           pointerEvents: "none",
         }}
-        
       >
-          
-        
         <Canvas
           frameloop="always"
           gl={{
@@ -142,7 +138,6 @@ const Scene = () => {
             display: "block",
           }}
         >
-          
           <directionalLight position={[-5, -5, 5]} intensity={4} />
 
           <Suspense fallback={<Loader />}>
@@ -189,7 +184,10 @@ const Scene = () => {
             baseRotation={0}
             blurStrength={10}
           >
-            Code your vision into existence, Where code becomes magic 🪄🐦‍🔥💥
+            Code your vision into existence, Where code becomes magic
+            <ComicText>
+              <span className="text-[3rem] leading-none">🪄🐦‍🔥💥</span>
+            </ComicText>
           </ScrollReveal>
         </div>
       )}

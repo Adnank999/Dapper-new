@@ -17,7 +17,7 @@ import { LogoutButton } from "./LogoutButton";
 gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
-  { name: "HOME", href: "/home" },
+  { name: "HOME", href: "/" },
   { name: "ABOUT", href: "/about" },
   { name: "WORK", href: "/project" },
   { name: "CONTACT", href: "/contact" },
@@ -84,12 +84,14 @@ export const CurvedNavbar = () => {
           <ul className="flex justify-center items-center gap-8 font-normal text-xl text-slate-900 dark:text-white">
             {navLinks.map(({ name, href }) => (
               <li
+                // href={href}
                 key={name}
                 className="
                   relative font-my-font-bold tracking-wide text-lg rounded-full px-5 py-1 transition duration-300
                   hover:border-b hover:border-b-blue-400 hover:shadow-[0_4px_10px_2px_rgba(59,130,246,0.5)]
                 "
                 onClick={() => router.push(href)}
+                // prefetch={true}
               >
                 {name}
                 <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px hover:bg-linear-to-r from-transparent via-blue-500 to-transparent h-px" />

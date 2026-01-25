@@ -57,9 +57,9 @@ function LazySection({
 export default function Hero() {
   return (
     <div className="w-full">
-      {/* <LazySection rootMargin="0px">
+      <LazySection rootMargin="0px">
         <Navigation />
-      </LazySection> */}
+      </LazySection>
 
       <LazySection rootMargin="0px" className="min-h-screen">
         <TextWithParticles />
@@ -73,9 +73,9 @@ export default function Hero() {
         <Gradient />
       </LazySection>
 
-      {/* <LazySection minScrollY={150}>
+      <LazySection minScrollY={150}>
         <Scene />
-      </LazySection> */}
+      </LazySection>
 
       <LazySection minScrollY={50}>
         <Testimonial />

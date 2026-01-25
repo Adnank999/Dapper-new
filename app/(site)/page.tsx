@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 const LazyHeroSection = dynamic(
-  () => import("../../components/HomeComponents/Hero"),
+  () => import("@/app/components/HomeComponents/Hero"),
   {
     loading: () => <>Preparing</>,
   },

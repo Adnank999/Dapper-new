@@ -3,23 +3,37 @@
 import { useEffect } from "react";
 
 export default function RunicClient() {
+  // useEffect(() => {
+  //   (window as any).OPEN_DAT_GUI = true;
+  //   import("@/app/components/runicComponents/src/js/index");
+  // }, []);
+
   useEffect(() => {
-    (window as any).OPEN_DAT_GUI = true;
-    import("@/app/components/runicComponents/src/js/index");
+    let destroy: undefined | (() => void);
+
+    (async () => {
+      (window as any).OPEN_DAT_GUI = true;
+      const mod = await import("@/app/components/runicComponents/src/js/index");
+      mod.initRunic?.();
+      destroy = mod.destroyRunic;
+    })();
+
+    return () => {
+      destroy?.();
+    };
   }, []);
+
 
   return (
     <>
       {/* Background layer (behind cards) */}
-    <div className="absolute inset-0 -z-10">
-  <div id="scene" className="scene js-preload" data-load-count="20" />
-</div>
+      <div className="absolute inset-0 -z-10">
+        <div id="scene" className="scene js-preload" data-load-count="20" />
+      </div>
       {/* Preloader layer (on top) */}
       <div className="fixed inset-0 z-50 pointer-events-none">
         <div id="preloader" className="preloader pointer-events-auto">
-          <div className="preloader__wheel js-preloader-wheel">
-           
-          </div>
+          <div className="preloader__wheel js-preloader-wheel"></div>
 
           <div className="preloader__percent js-preloader-percent">00%</div>
         </div>

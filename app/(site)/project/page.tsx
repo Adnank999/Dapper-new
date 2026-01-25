@@ -90,8 +90,8 @@ export default function Page() {
 
   return (
     <main className="relative">
+     
       <RunicClient />
-
       <div className="fixed inset-0 z-10 flex items-center justify-end pointer-events-none mt-10">
         <div
           ref={showcaseRef}

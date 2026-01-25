@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { CSSProperties, ReactNode } from "react";
 
 type ComicTextProps = {
-  children: ReactNode;  // Allow any type of ReactNode (string or JSX)
+  children: React.ReactNode
   className?: string;
   style?: CSSProperties;
   fontSize?: number;

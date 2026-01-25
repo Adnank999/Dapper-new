@@ -13,7 +13,7 @@ import { getProjectColumns } from "./project-columns";
 
 export default function ProjectWrapper() {
   const { data, loading, error, refetch } = useQuery<{ projects: Project[] }>(
-    GET_PROJECTS,
+    GET_PROJECTS,{fetchPolicy: "cache-first"}
   );
 
   const projects = data?.projects ?? [];
