@@ -6,22 +6,18 @@ import dynamic from "next/dynamic"
 
 // ✅ dynamic imports (code-split)
 const Navigation = dynamic(() => import("../NavHeroContainer"), {
-  ssr: false,
   loading: () => <div className="h-16 w-full" />,
 })
 
 const TextWithParticles = dynamic(() => import("../HomeComponents/Intro2"), {
-  ssr: false,
   loading: () => <div className="h-40 w-full" />,
 })
 
 const GlowingEffectDemo = dynamic(() => import("./glowing-effectDemo"), {
-  ssr: false,
   loading: () => <div className="h-screen w-full max-w-4xl mx-auto " />,
 })
 
 const Gradient = dynamic(() => import("./GradientModelWrapper"), {
-  ssr: false,
   loading: () => <div className="h-40 w-full" />,
 })
 
@@ -31,7 +27,6 @@ const Scene = dynamic(() => import("./3dmodels/Scene"), {
 })
 
 const Testimonial = dynamic(() => import("./Testimonial"), {
-  ssr: false,
   loading: () => <div className="h-40 w-full" />,
 })
 
