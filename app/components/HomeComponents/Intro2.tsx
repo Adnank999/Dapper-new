@@ -48,13 +48,13 @@ const Intro2: React.FC = () => {
       {/* Sticky Container: Pinned to viewport while scrolling through the parent */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center">
         {/* Abstract Background Element */}
-        {/* <motion.div 
+        <motion.div 
           style={{ y: bgY }}
           className="absolute inset-0 z-0 opacity-20 pointer-events-none"
         >
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600 rounded-full blur-[120px] mix-blend-screen" />
-          <div className="absolute bottom-1/4 right-1/4 w-125 h-125 bg-rose-600 rounded-full blur-[120px] mix-blend-screen" />
-        </motion.div> */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] mix-blend-screen" />
+          <div className="absolute bottom-1/4 right-1/4 w-125 h-125 bg-rose-600/20 rounded-full blur-[120px] mix-blend-screen" />
+        </motion.div>
 
         {/* First Text Group: "Hi, I am Adnan" */}
         <motion.div

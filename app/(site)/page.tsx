@@ -1,3 +1,4 @@
+"use cache";
 import dynamic from "next/dynamic";
 
 const LazyHeroSection = dynamic(
@@ -7,7 +8,7 @@ const LazyHeroSection = dynamic(
   },
 );
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="overflow-x-hidden overflow-y-hidden">
       <LazyHeroSection />

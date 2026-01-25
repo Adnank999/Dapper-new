@@ -32,7 +32,7 @@ export const CurvedNavbar = () => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
   }, [isMenuOpen]);
 
-  let lastScroll = useRef(0);
+  const lastScroll = useRef(0);
 
   useEffect(() => {
     const navbar = navbarRef.current;
@@ -87,7 +87,7 @@ export const CurvedNavbar = () => {
                 // href={href}
                 key={name}
                 className="
-                  relative font-my-font-bold tracking-wide text-lg rounded-full px-5 py-1 transition duration-300
+                  relative font-pp-edit-regular tracking-wider text-sm rounded-full px-5 py-1 transition duration-300
                   hover:border-b hover:border-b-blue-400 hover:shadow-[0_4px_10px_2px_rgba(59,130,246,0.5)]
                 "
                 onClick={() => router.push(href)}
@@ -102,7 +102,7 @@ export const CurvedNavbar = () => {
 
         <div className="w-32 flex justify-end">
           <ModeToggle />
-          <LogoutButton/>
+          <LogoutButton />
         </div>
       </div>
 

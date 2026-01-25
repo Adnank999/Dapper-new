@@ -56,7 +56,7 @@ export const DARK_BASE = `
 const LIGHT_BASE = `radial-gradient(circle at 50% 70%, #ffffff 0%, #f3f4f6 60%, #e5e7eb 100%)`
 
 // ✅ Radial glow only (localized with background-size)
-const DARK_GLOW = `radial-gradient(circle at 50% 50%, rgba(37,0,140,0.95) 0%, rgba(23,0,36,0) 45%)`
+const DARK_GLOW = `radial-gradient(circle at 50% 50%, rgba(37,0,140,0.5) 0%, rgba(23,0,36,0) 45%)`
 
 const GradientSection = () => {
   const { resolvedTheme } = useTheme()

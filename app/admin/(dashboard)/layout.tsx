@@ -8,16 +8,19 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { ThemeCustomizer, ThemeCustomizerTrigger } from "@/components/theme-customizer";
 import { UpgradeToProButton } from "@/components/upgrade-to-pro-button";
 import { useSidebarConfig } from "@/hooks/use-sidebar-config";
+import { getCurrentUser } from "@/src/lib/getCurrentUser";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
   const [themeCustomizerOpen, setThemeCustomizerOpen] = React.useState(false);
   const { config } = useSidebarConfig();
 
   return (
+
     <SidebarProvider
       style={{
         "--sidebar-width": "16rem",

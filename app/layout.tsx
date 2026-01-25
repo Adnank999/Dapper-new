@@ -30,13 +30,20 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user = await getCurrentUser();
-  console.log("Current User in Layout:", user);
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+          <link
+          rel="preload"
+          href="/fonts/FKScreamerTrial-Bold-BF6571330a76e9b.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-         className={`antialiased`}
+        className={`antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -48,9 +55,7 @@ export default async function RootLayout({
             <ViewTransitions>
               {/* <SmoothScrollingWrapper> */}
 
-              <ApolloProviders>
-                <UserProvider user={user}>{children}</UserProvider>
-              </ApolloProviders>
+              <ApolloProviders>{children}</ApolloProviders>
 
               {/* </SmoothScrollingWrapper> */}
             </ViewTransitions>
