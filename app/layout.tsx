@@ -1,24 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
 import { ViewTransitions } from "next-view-transitions";
 import { ThemeProvider } from "./components/ThemeProvider";
-import SmoothScrollingWrapper from "@/utils/SmoothScrollingWrapper";
-import { getCurrentUser } from "../src/lib/getCurrentUser";
-import { UserProvider } from "./context/UserContext";
 import ApolloProviders from "./providers/ApolloProviders";
 import { SidebarConfigProvider } from "./context/sidebar-context";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",

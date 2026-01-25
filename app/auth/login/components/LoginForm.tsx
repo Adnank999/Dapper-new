@@ -84,7 +84,7 @@ export function LoginForm() {
                         type="email"
                         placeholder="Enter your email"
                         required
-                        className="size-full rounded-lg px-4 text-sm bg-transparent focus:outline-none text-white placeholder:text-white/40"
+                        className="size-full px-4 text-sm bg-transparent focus:outline-none text-white placeholder:text-white/40 h-10"
                         onFocus={() => setIsEmailFocused(true)}
                         onBlur={() => setIsEmailFocused(false)}
                       />
@@ -104,14 +104,14 @@ export function LoginForm() {
                       </Link>
                     </div>
 
-                    <NeonBorder animationType="static" duration={0} isActive={isPasswordFocused}>
+                    <NeonBorder animationType="static" duration={0} isActive={isPasswordFocused} >
                       <input
                         id="password"
                         name="password"
                         type="password"
                         placeholder="Enter your password"
                         required
-                        className="size-full rounded-lg px-4 text-sm bg-transparent focus:outline-none text-white placeholder:text-white/40"
+                        className="size-full px-4 text-sm bg-transparent focus:outline-none text-white placeholder:text-white/40 h-10"
                         onFocus={() => setIsPasswordFocused(true)}
                         onBlur={() => setIsPasswordFocused(false)}
                       />

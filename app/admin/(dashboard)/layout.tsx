@@ -20,7 +20,7 @@ export default function DashboardLayout({
   const { config } = useSidebarConfig();
 
   return (
-
+    
     <SidebarProvider
       style={{
         "--sidebar-width": "16rem",

@@ -15,9 +15,6 @@ export default function ProjectLayout({
 }>) {
   return (
     <>
-      {/* <Script id="open-dat-gui-flag" strategy="beforeInteractive">
-        {`window.OPEN_DAT_GUI = true;`}
-      </Script> */}
       {children}
     </>
   );

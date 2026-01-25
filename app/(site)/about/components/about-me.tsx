@@ -23,7 +23,7 @@ const TechnicalStack = dynamic(
 export default function AboutMeSection() {
   return (
     <>
-      <div className="relative z-10 bg-foreground">
+      <div className="relative z-10">
         <RainingLetters />
       </div>
 

@@ -88,6 +88,7 @@
     "react-lazyload": "^3.2.1",
     "react-resizable-panels": "^4.4.1",
     "recharts": "^3.6.0",
+    "resend": "^6.8.0",
     "slate": "^0.123.0",
     "slate-dom": "^0.123.0",
     "slate-history": "^0.113.1",

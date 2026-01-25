@@ -1,10 +1,11 @@
-export interface User {
-  id: string
-  name: string
-  email: string
-  emailVerified: boolean
-  image: any
-  roles: string[]
-  createdAt: string
-  updatedAt: string
-}
+
+export type User = {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  email: string;
+  emailVerified: boolean;
+  name: string;
+  image?: string | null;
+  roles?: string[]; 
+};

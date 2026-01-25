@@ -99,7 +99,7 @@ export function SignUpForm() {
                       id="first-name"
                       placeholder="John"
                       required
-                      className="size-full rounded-lg px-4 text-sm bg-transparent focus:outline-none border border-slate-800 focus:border-none"
+                      className="size-full h-10 rounded-lg px-4 text-sm bg-transparent focus:outline-none border border-slate-800 focus:border-none"
                       onFocus={() => setIsFirstNameFocused(true)}
                       onBlur={() => setIsFirstNameFocused(false)}
                     />
@@ -117,7 +117,7 @@ export function SignUpForm() {
                       id="last-name"
                       placeholder="Doe"
                       required
-                      className="size-full rounded-lg px-4 text-sm bg-transparent focus:outline-none border border-slate-800 focus:border-none"
+                      className="size-full h-10 rounded-lg px-4 text-sm bg-transparent focus:outline-none border border-slate-800 focus:border-none"
                       onFocus={() => setIsLastNameFocused(true)}
                       onBlur={() => setIsLastNameFocused(false)}
                     />
@@ -136,7 +136,7 @@ export function SignUpForm() {
                     type="email"
                     placeholder="Enter your email"
                     required
-                    className="size-full rounded-lg px-4 text-sm bg-transparent focus:outline-none border border-slate-800 focus:border-none"
+                    className="size-full h-10 rounded-lg px-4 text-sm bg-transparent focus:outline-none border border-slate-800 focus:border-none"
                     onFocus={() => setIsEmailFocused(true)}
                     onBlur={() => setIsEmailFocused(false)}
                   />
@@ -154,7 +154,7 @@ export function SignUpForm() {
                     type="password"
                     placeholder="Enter your password"
                     required
-                    className="size-full rounded-lg px-4 text-sm bg-transparent focus:outline-none border border-slate-800 focus:border-none"
+                    className="size-full h-10 rounded-lg px-4 text-sm bg-transparent focus:outline-none border border-slate-800 focus:border-none"
                     onFocus={() => setIsPasswordFocused(true)}
                     onBlur={() => setIsPasswordFocused(false)}
                   />
@@ -172,7 +172,7 @@ export function SignUpForm() {
                     type="password"
                     placeholder="Enter your confirm password"
                     required
-                    className="size-full rounded-lg px-4 text-sm bg-transparent focus:outline-none border border-slate-800 focus:border-none"
+                    className="size-full h-10 rounded-lg px-4 text-sm bg-transparent focus:outline-none border border-slate-800 focus:border-none"
                     onFocus={() => setIsPasswordFocused(true)}
                     onBlur={() => setIsPasswordFocused(false)}
                   />

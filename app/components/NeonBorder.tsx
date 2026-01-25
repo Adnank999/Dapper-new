@@ -44,7 +44,7 @@ const NeonBorder: React.FC<NeonBorderProps> = ({
   return (
     <div
       className={cn(
-        'relative inline-block h-10 w-full max-w-sm overflow-hidden rounded-lg p-px z-10',
+        'relative  w-full h-11  overflow-hidden rounded-lg p-0.5 z-10 ',
         className
       )}
       style={{
@@ -73,7 +73,7 @@ const NeonBorder: React.FC<NeonBorderProps> = ({
           opacity: isActive ? 1 : 0,
         } as React.CSSProperties}
       />
-      <div className="relative h-full w-full rounded-[calc(0.5rem-1px)] bg-background z-10">
+      <div className="relative h-auto w-full rounded-[calc(0.5rem-1px)] bg-background z-10">
         {children}
       </div>
     </div>

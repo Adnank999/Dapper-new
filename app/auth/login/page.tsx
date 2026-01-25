@@ -1,6 +1,6 @@
 import React from "react";
 import { LoginForm } from "./components/LoginForm";
-import AnimatedBeam from "@/app/components/AnimatedBeam";
+
 import { GlassShader } from "@/app/components/GlassShader";
 
 const page = () => {

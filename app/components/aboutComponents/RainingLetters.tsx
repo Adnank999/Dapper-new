@@ -18,58 +18,6 @@ const RainingLetters: React.FC = () => {
   const isMobile = useIsMobile();
 
 
-  // useEffect(() => {
-  //   const container = containerRef.current
-  //   if (!container) return
-
-  //   const elements: HTMLElement[] = []
-
-  //   for (let i = 0; i < charCount; i++) {
-  //     const span = document.createElement("span")
-  //     span.textContent = allChars[Math.floor(Math.random() * allChars.length)]
-  //     span.className = "absolute text-slate-600 font-light text-xs"
-  //     span.style.left = `${Math.random() * 100}%`
-  //     span.style.top = `${Math.random() * 100}%`
-  //     span.style.transform = "translate(-50%, -50%)"
-  //     container.appendChild(span)
-  //     elements.push(span)
-  //   }
-
-  //   charElements.current = elements
-
-  //   let animationFrameId: number
-  //   const speeds = elements.map(() => 0.05 + Math.random() * 0.3)
-
-  //   const animate = () => {
-  //     elements.forEach((el, i) => {
-  //       let top = parseFloat(el.style.top || "0")
-  //       top += speeds[i]
-  //       if (top >= 100) {
-  //         top = -5
-  //         el.textContent = allChars[Math.floor(Math.random() * allChars.length)]
-  //         el.style.left = `${Math.random() * 100}%`
-  //       }
-  //       el.style.top = `${top}%`
-
-  //       // Flicker effect
-  //       if (Math.random() < 0.03) {
-  //         el.className = "absolute text-[#00ff00] text-base font-bold animate-pulse"
-  //       } else {
-  //         el.className = "absolute text-slate-600 font-light text-xs md:text-lg lg:text-xl"
-  //       }
-  //     })
-
-  //     animationFrameId = requestAnimationFrame(animate)
-  //   }
-
-  //   animate()
-
-  //   return () => {
-  //     cancelAnimationFrame(animationFrameId)
-  //     elements.forEach(el => container.removeChild(el))
-  //   }
-  // }, [])
-
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -79,7 +27,7 @@ const RainingLetters: React.FC = () => {
     for (let i = 0; i < charCount; i++) {
       const span = document.createElement("span");
       span.textContent = allChars[Math.floor(Math.random() * allChars.length)];
-      span.className = "absolute text-slate-600 font-light text-xs ";
+      span.className = "absolute text-slate-600  text-xs ";
       span.style.left = `${Math.random() * 100}%`;
       span.style.top = `${Math.random() * 100}%`;
       span.style.transform = "translate(-50%, -50%)";
@@ -150,7 +98,7 @@ const RainingLetters: React.FC = () => {
 
   return (
     <div
-      className="relative w-full h-screen bg-black overflow-hidden"
+      className="relative w-full h-screen bg-white dark:bg-black overflow-hidden"
       ref={containerRef}
     >
       {/* Title */}
